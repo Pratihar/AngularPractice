@@ -12,6 +12,11 @@ import { Location } from '@angular/common';
 export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero
+
+  save(): void {
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
+  }
   
   constructor(
     private route: ActivatedRoute,
